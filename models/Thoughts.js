@@ -1,15 +1,17 @@
 const { Schema, model, Types } = require('mongoose');
 
 const ThoughtSchema = new Schema({
-    writtenBy: {
+    username: {
         type: String,
         required: true,
         trim: true
     },
-    thoughtBody: {
+    thoughtText: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        minlength: 1,
+        maxlength: 280
     },
     createdAt: {
         type: Date,

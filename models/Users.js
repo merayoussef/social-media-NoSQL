@@ -4,16 +4,15 @@ const UserSchema = new Schema({
     userName: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     userEmail: {
         type: String,
         required: true,
-        trim: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
+        trim: true,
+        unique: true,
+        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/]
     },
     thoughts: [{
         type: Schema.Types.ObjectId,
